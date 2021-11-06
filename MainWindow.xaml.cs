@@ -34,6 +34,7 @@ namespace Cube_World_Launcher
         public MainWindow()
         {
             InitializeComponent();
+
             //自动找版本
             var versions = Core.GetVersions().ToArray();
             versionCombo.ItemsSource = versions;//绑定数据源
@@ -43,17 +44,15 @@ namespace Cube_World_Launcher
             {
                 javaList.Add(i);
             }
-
+            javaList.Add(tools.GetJavaPath());
             javaCombo.ItemsSource = javaList;
             //初始选择
-            if (versionCombo.Items.Count != 0)
-                versionCombo.SelectedItem = versionCombo.Items[0];
-            if (javaCombo.Items.Count != 0)
-                javaCombo.SelectedItem = javaCombo.Items[0];
+            versionCombo.SelectedItem = versionCombo.Items[0];
+            javaCombo.SelectedItem = javaCombo.Items[0];
         }
         public void GameStart()
         {
-            if (versionCombo.Text != String.Empty&&javaCombo.Text != String.Empty&&OfflineLogin.IDText.Text != String.Empty&&MemoryTextbox.Text != String.Empty)
+
             try
             {
                 Core.JavaPath = javaCombo.Text;
@@ -66,7 +65,7 @@ namespace Cube_World_Launcher
                     //Authenticator = new YggdrasilLogin("邮箱", "密码", true), // 正版启动，最后一个为是否twitch登录
                     Mode = LaunchMode.MCLauncher, //启动模式，这个我会在后面解释有哪几种
                     //Server = new ServerInfo { Address = "服务器IP地址", Port = "服务器端口" }, //设置启动游戏后，自动加入指定IP的服务器，可以不要
-                    //Size = new WindowSize { Height = 768, Width = 1280 } //设置窗口大小，可以不要
+                    //Size = new WindowSize { Height = 720, Width = 1280 } //设置窗口大小，可以不要
                 });
                 //错误提示
                 if (!result.Success)
