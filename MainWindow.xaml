@@ -45,8 +45,8 @@
         <Label Content="Java选择" HorizontalAlignment="Left" Margin="83,79,0,0" VerticalAlignment="Top" FontSize="18" Width="90"/>
         <Label Content="最大内存" HorizontalAlignment="Left" Margin="405,196,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.058,-0.201" FontSize="18" Grid.Column="1"/>
         <Label Content="ID设置" HorizontalAlignment="Left" Margin="422,256,0,0" VerticalAlignment="Top" FontSize="18" Grid.Column="1"/>
-        <Button Content="离线" HorizontalAlignment="Right" Margin="0,294,176,114" VerticalAlignment="Top" Width="54" FontSize="18" Click="Button_Click_1" Grid.Column="1"/>
-        <Button Content="正版" HorizontalAlignment="Right" Margin="0,294,106,114" VerticalAlignment="Top" Width="54" FontSize="18" Click="Button_Click_2" Grid.Column="1"/>
+        <Button Content="离线" HorizontalAlignment="Right" Margin="0,294,176,0" VerticalAlignment="Top" Width="54" FontSize="18" Click="Button_Click_1" Grid.Column="1" Height="26.86"/>
+        <Button Content="正版" HorizontalAlignment="Right" Margin="0,294,106,0" VerticalAlignment="Top" Width="54" FontSize="18" Click="Button_Click_2" Grid.Column="1" Height="26.86"/>
         <Button Content="微软" HorizontalAlignment="Right" Margin="0,294,30,0" VerticalAlignment="Top" Width="54" FontSize="18" Click="Button_Click_3" Grid.Column="1"/>
         <ContentControl x:Name="ContentControl1" HorizontalAlignment="Left" Margin="355,10,0,0" VerticalAlignment="Top" Height="181" Width="200" Grid.Column="1"/>
     </Grid>

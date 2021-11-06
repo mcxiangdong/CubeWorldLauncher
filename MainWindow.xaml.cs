@@ -16,6 +16,11 @@ using KMCCC.Authentication;
 using KMCCC.Launcher;
 using Panuon.UI.Silver;
 using SquareMinecraftLauncher;
+using SquareMinecraftLauncherWPF;
+using KMCCC;
+using KMCCC.Modules;
+using KMCCC.Tools;
+using KMCCC.Pro;
 
 namespace Cube_World_Launcher
 {
@@ -29,6 +34,7 @@ namespace Cube_World_Launcher
         LoginUI.OfflineLogin OfflineLogin = new LoginUI.OfflineLogin();
         LoginUI.MicrosoftLogin MicrosoftLogin = new LoginUI.MicrosoftLogin();
         LoginUI.MojangLogin MojangLogin = new LoginUI.MojangLogin();
+        public int launchMode = 1;
         SquareMinecraftLauncher.Minecraft.Tools tools = new SquareMinecraftLauncher.Minecraft.Tools();
         public static LauncherCore Core = LauncherCore.Create();
         public MainWindow()
@@ -52,21 +58,26 @@ namespace Cube_World_Launcher
         }
         public void GameStart()
         {
+            LaunchOptions launchOptions = new LaunchOptions();
+            switch (launchMode)
+            {
+                case 1:
+                    launchOptions.Authenticator = new OfflineAuthenticator (OfflineLogin.IDText.Text);
+                    break;
+                case 2:
+                    launchOptions.Authenticator = new YggdrasilLogin(MojangLogin.Email.Text,MojangLogin.password.Password,false);
+                    break;
+            }
 
+            launchOptions.MaxMemory = Convert.ToInt32(MemoryTextbox.Text);
+            if (OfflineLogin.IDText.Text !=string.Empty||(MojangLogin.Email.Text !=string.Empty&&MojangLogin.password.Password !=string.Empty)&&MemoryTextbox.Text != string.Empty&&versionCombo.Text != string.Empty && javaCombo.Text != string.Empty)
             try
             {
                 Core.JavaPath = javaCombo.Text;
                 var ver = (KMCCC.Launcher.Version)versionCombo.SelectedItem;
-                var result = Core.Launch(new LaunchOptions
-                {
-                    Version = ver, //Ver为Versions里你要启动的版本名字
-                    MaxMemory = Convert.ToInt32(MemoryTextbox.Text), //最大内存，int类型
-                    Authenticator = new OfflineAuthenticator(OfflineLogin.IDText.Text), //离线启动，ZhaiSoul那儿为你要设置的游戏名
-                    //Authenticator = new YggdrasilLogin("邮箱", "密码", true), // 正版启动，最后一个为是否twitch登录
-                    Mode = LaunchMode.MCLauncher, //启动模式，这个我会在后面解释有哪几种
-                    //Server = new ServerInfo { Address = "服务器IP地址", Port = "服务器端口" }, //设置启动游戏后，自动加入指定IP的服务器，可以不要
-                    //Size = new WindowSize { Height = 720, Width = 1280 } //设置窗口大小，可以不要
-                });
+                launchOptions.Version = ver;
+
+                var result = Core.Launch(launchOptions);
                 //错误提示
                 if (!result.Success)
                 {
@@ -117,6 +128,7 @@ namespace Cube_World_Launcher
             {
                 Content = OfflineLogin
             };
+            launchMode = 1;
         }
 
         /// <summary>
@@ -126,7 +138,11 @@ namespace Cube_World_Launcher
         /// <param name="e"></param>
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            ContentControl1.Content = new Frame
+            {
+                Content = MojangLogin
+            };
+            launchMode = 2;
         }
 
         /// <summary>
@@ -136,7 +152,11 @@ namespace Cube_World_Launcher
         /// <param name="e"></param>
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            ContentControl1.Content = new Frame
+            {
+                Content = MicrosoftLogin
+            };
+            launchMode = 3;
         }
     }
 }
