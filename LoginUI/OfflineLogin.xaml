@@ -1,0 +1,15 @@
+﻿<Page x:Class="Cube_World_Launcher.LoginUI.OfflineLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cube_World_Launcher.LoginUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="200" d:DesignWidth="200"
+      Title="OfflineLogin">
+
+    <Grid>
+        <TextBox x:Name="IDText" HorizontalAlignment="Center" Margin="0,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="18"/>
+
+    </Grid>
+</Page>
