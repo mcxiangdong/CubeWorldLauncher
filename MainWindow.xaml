@@ -6,7 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cube_World_Launcher"
         mc:Ignorable="d"
-        Title="Cube World Launcher Alpha 1.01" Height="450" Width="800" Visibility="Visible" WindowStyle="SingleBorderWindow" Background="White">
+        Title="Cube World Launcher Alpha 1.01" Height="450" Width="800" Visibility="Visible" WindowStyle="SingleBorderWindow" Background="White"
+            Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="207*"/>
@@ -15,12 +16,13 @@
         <ComboBox Height="30"
               Width="200"
               pu:ComboBoxHelper.Header="Select one : "
-              DisplayMemberPath="Id" 
+              DisplayMemberPath="version"
+              
               pu:ComboBoxHelper.ItemHeight="30" 
               HorizontalAlignment="Left" 
                   x:Name="versionCombo"
               VerticalAlignment="Top" 
-              Margin="30,44,0,0" Grid.ColumnSpan="2" IsEditable="True"/>
+              Margin="30,44,0,0" Grid.ColumnSpan="2" IsEditable="True" SelectedValuePath="IdVersion"/>
         <Button Height="60"
             Width="200"
             Content="启动游戏"
@@ -37,10 +39,10 @@
         <TextBox Height="30"
              Width="200"
              x:Name="MemoryTextbox"
-             Text="1024"
+             Text=""
              pu:TextBoxHelper.Header="Account : "
              pu:TextBoxHelper.Watermark="PlaceHolder"
-             pu:TextBoxHelper.CornerRadius="15" HorizontalAlignment="Right" Margin="0,0,30,160" VerticalAlignment="Bottom" Grid.Column="1"/>
+             pu:TextBoxHelper.CornerRadius="15" HorizontalAlignment="Right" Margin="0,0,30,176" VerticalAlignment="Bottom" Grid.Column="1" TextChanged="MemoryTextbox_TextChanged"/>
         <Label Content="版本选择" HorizontalAlignment="Left" Margin="83,10,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Java选择" HorizontalAlignment="Left" Margin="83,79,0,0" VerticalAlignment="Top" FontSize="18" Width="90"/>
         <Label Content="最大内存" HorizontalAlignment="Left" Margin="405,196,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.058,-0.201" FontSize="18" Grid.Column="1"/>

@@ -24,5 +24,10 @@ namespace Cube_World_Launcher.LoginUI
         {
             InitializeComponent();
         }
+        
+        private void IDText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

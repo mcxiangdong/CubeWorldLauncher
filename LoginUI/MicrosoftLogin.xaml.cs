@@ -23,6 +23,7 @@ namespace Cube_World_Launcher.LoginUI
         public MicrosoftLogin()
         {
             InitializeComponent();
+
         }
     }
 }
