@@ -1,5 +1,5 @@
 - **简体中文**
-- [**Switch to English**](https://github.com/Big-Cake-jpg/Cake-Launcher/blob/dev/README-en.md)
+- [**Switch to English**](https://github.com/mcxiangdong/CubeWorldLauncher/blob/dev/README-en.md)
 
 ﻿<h1 align="center">Cube World Launcher | Minecraft 启动器</h1>
 
