@@ -1,5 +1,5 @@
 - **English**
-- [**切换为简体中文**](https://github.com/mcxiangdong/CubeWorldLauncher/blob/dev/README.md)
+- [**切换为简体中文**](https://github.com/mcxiangdong/CubeWorldLauncher/blob/main/README.md)
 
 ﻿<h1 align="center">Cube World Launcher | Minecraft Launcher</h1>
 
